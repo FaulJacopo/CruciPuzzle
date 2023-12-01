@@ -1,0 +1,145 @@
+@startuml
+    class Campo {
+        - VERTICALE: int
+        - ORIZZONTALE: int
+        - OBLIQUA_SINISTRA: int
+        - OBLIQUA_DESTRA: int
+        - NPAROLE_FACILE: int
+        - NPAROLE_MEDIO: int
+        - NPAROLE_DIFFICILE: int
+        - NUMERO_CAMBI_DISPONIBILI: int
+        - numeroCambi: int
+        - numeroSpazi: int
+        - incrementoCelle: int[]
+        - arrayParole: ArrayList<String>
+        - arrayParoleSoluzioni: ArrayList<String>
+        - difficolta: int
+        - parole: Parole
+        - campo: Lettera[][]
+        - grandezzaCampo: int
+        - alfabeto: String
+        + getArrayParole(): ArrayList<String>
+        + getDifficolta(): int
+        + getCampo(): Lettera[][]
+        + getGrandezzaCampo(): int
+        + getArraySoluzioni(): ArrayList<String>
+        + getNumeroSpazi(): int
+        + Campo(grandezzaCampo: int, parole: Parole, difficolta: int)
+        + inizializzaCampo(): void
+        + generaCampo(): void
+        + stampa(): void
+        + sostituisciParola(): void
+        + generaTutteLeParole(parola: String): void
+        + inserisciParolaVerticale(parola: String): void
+        + inserisciParolaOrizzontale(parola: String): void
+        + inserisciParolaObliqua(parola: String): void
+        + inserisciParolaVerticale(parola: String, riga: int, colonna: int, girata: boolean): void
+        + inserisciParolaOrizzontale(parola: String, riga: int, colonna: int, girata: boolean): void
+        + inserisciParolaObliquaS(parola: String, riga: int, colonna: int, girata: boolean): void
+        + inserisciParolaObliquaD(parola: String, riga: int, colonna: int, girata: boolean): void
+        + inserisciLettereMancanti(): void
+        + contaLettereMancanti(): int
+        + controllaLeCelleRestanti(): void
+        + controllaCellaSuccessivaVerticale(i: int, j: int): void
+        + controllaCellaSuccessivaOrizzontale(i: int, j: int): void
+        + controllaCellaSuccessivaObliquaS(i: int, j: int): void
+        + controllaCellaSuccessivaObliquaD(i: int, j: int): void
+        + controllaCelle(parola: String, direzione: int, riga: int, colonna: int): boolean
+        + inserisciParolaInArray(parola: String, riga: int, colonna: int, direzione: String, girata: boolean): void
+        + inserisciParolaNascosta(parolaNascosta: String): void
+    }
+    
+  class InputForm {
+    - difficolta: int
+    - grandezzaCampo: int
+    - fontChoosen: Font
+    - fileParole: File
+
+    + InputForm()
+    + initComponents()
+    + jcbModalitaActionPerformed(evt: ActionEvent)
+    + btnFontActionPerformed(evt: ActionEvent)
+    + btnParoleActionPerformed(evt: ActionEvent)
+    + btnGenerateActionPerformed(evt: ActionEvent)
+    + jcbDifficoltaActionPerformed(evt: ActionEvent)
+    + main(args: String[])
+  }
+  
+  class GameTableModel {
+    - puzzleData: String[][]
+    + GameTableModel(grandezzaCampo: int)
+    + getRowCount(): int
+    + getColumnCount(): int
+    + getValueAt(row: int, column: int): Object
+    + setValueAt(value: Object, row: int, column: int): void
+    + isCellEditable(row: int, column: int): boolean
+}
+
+class Lettera {
+    - lettera: String
+    - verticale: int
+    - orizzontale: int
+    - obliquaSinistra: int
+    - obliquaDestra: int
+    - girata: boolean
+
+    + Lettera(lettera: String, verticale: int, orizzontale: int, obliquaSinistra: int, obliquaDestra: int, girata: boolean)
+}
+class MainForm {
+    - campo: Campo
+    - parole: Parole
+    - modello: TableModel
+    - modelloParole: TableModel
+    - getMessage: String
+    - numeroParole: int
+    - numeroColonne: double
+
+    + MainForm(parole: Parole, campo: Campo, font: Font)
+    + vaBeneLaParola(parolaNascosta: String): boolean
+    + selezionaParolaNascosta(): void
+    + inserisciInTabella(): void
+    + inserisciParole(): void
+    + savePNG(): void
+    + saveTXT(): void
+    + printToPrinter(): void
+    + impostaPagina(valore: boolean): void
+}
+
+class Parole {
+    - pathFile: String
+    - file: File
+    - scannerFile: Scanner
+    - scannerPiccole: Scanner
+    - aList: ArrayList<String>
+    - grandezzaCampo: int
+    - campo: Campo
+
+    + Parole(pathFile: String, grandezzaCampo: int, difficolta: int)
+    + setCampo(c: Campo): void
+    + selezionaParole(): String
+    + verificaParola(interessata: String): boolean
+    + selezionaParole(nChar: int): String
+    + pulisciParola(parola: String): String
+}
+
+
+class SoluzioneForm {
+    - array: ArrayList<String>
+    + SoluzioneForm(arrayParole: ArrayList<String>)
+    + inserisciSoluzione()
+}
+
+class WordsTableModel {
+    - parole: String[][]
+    + WordsTableModel(numeroRighe: int, numeroColonne: int)
+    + getRowCount(): int
+    + getColumnCount(): int
+    + getValueAt(row: int, column: int): Object
+    + setValueAt(value: Object, row: int, column: int): void
+    + isCellEditable(row: int, column: int): boolean
+}
+
+
+
+
+@enduml
