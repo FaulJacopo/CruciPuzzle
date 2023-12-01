@@ -5,6 +5,14 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe principale delle parole
+ * dove verranno selezionate le parole dal file
+ * passato.
+ * 
+ * @author Jacopo Faul
+ * @version 01.12.2023
+ */
 public class Parole {
 
     private String pathFile;

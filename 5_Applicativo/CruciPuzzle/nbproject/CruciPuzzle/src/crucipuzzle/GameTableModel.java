@@ -3,6 +3,13 @@ package crucipuzzle;
 import crucipuzzle.Lettera;
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Modello per la tabella dove verrà 
+ * mostrato il campo di gioco pieno di lettere.
+ * 
+ * @author Jacopo Faul
+ * @version 01.12.2023
+ */
 public class GameTableModel extends AbstractTableModel {
     private String[][] puzzleData;
 

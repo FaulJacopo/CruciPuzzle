@@ -3,15 +3,15 @@ package crucipuzzle;
 import com.ozten.font.JFontChooser;
 import java.awt.Font;
 import java.io.File;
-import javax.swing.JComponent;
 import javax.swing.JFileChooser;
-import javax.swing.JSlider;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author jacopo.faul
+ * Interfaccia grafica dove l'utente potrà inserire
+ * le varie opzioni per la generazione del campo.
+ * 
+ * @author Jacopo Faul
+ * @version 01.12.2023
  */
 public class InputForm extends javax.swing.JFrame {
     

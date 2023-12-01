@@ -27,8 +27,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 /**
- *
- * @author jacopo.faul
+ * Interfaccia grafica finale, dove verrà mostrato
+ * il campo, le parole e i pulsanti di export e per
+ * la soluzione.
+ * 
+ * @author Jacopo Faul
+ * @version 01.12.2023
  */
 public class MainForm extends javax.swing.JFrame {
 

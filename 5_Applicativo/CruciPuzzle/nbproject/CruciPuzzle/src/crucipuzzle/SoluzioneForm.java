@@ -7,8 +7,10 @@ package crucipuzzle;
 import java.util.ArrayList;
 
 /**
- *
- * @author jacop
+ * GUI con la soluzione del gioco.
+ * 
+ * @author Jacopo Faul
+ * @version 01.12.2023
  */
 public class SoluzioneForm extends javax.swing.JFrame {
 

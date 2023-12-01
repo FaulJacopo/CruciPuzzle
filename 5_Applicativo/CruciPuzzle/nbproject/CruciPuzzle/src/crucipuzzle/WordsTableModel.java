@@ -3,6 +3,12 @@ package crucipuzzle;
 import crucipuzzle.Lettera;
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Modello per la tabella contenente le parole.
+ * 
+ * @author Jacopo Faul
+ * @version 01.12.2023
+ */
 public class WordsTableModel extends AbstractTableModel {
     private String[][] parole;
 

@@ -1,8 +1,10 @@
 package crucipuzzle;
 
 /**
- *
- * @author jacopo.faul
+ * Classe con cui sarà creata la matrice del campo.
+ * 
+ * @author Jacopo Faul
+ * @version 01.12.2023
  */
 public class Lettera {
 

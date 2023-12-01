@@ -2,25 +2,25 @@ package crucipuzzle;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Random;
 
 /**
  * ***** DESCRIZIONE *****
- * Questa classe e' la classe "principale" del progetto, in quanto essa servira'
- * a creare il campo scegliendo le parole, impostando in base alle opzioni
- * scelte dall'utente: la dimensione del campo ed il numero di parole e spazi
- * che ci dovranno essere all'interno del campo.
- *
- * Questa classe a livello di algoritmo avrà un array bidimensionale
- * "mascheraCampo" che conterra' dei numeri:
- *
- * 0 - La cella è libera, 1 - La cella è occupata per una parola in verticale, 2
- * - La cella è occupata per una parola in orizzontale, 3 - La cella è occupata
- * per una parola in obliquo \, 4 - La cella è occupata per una parola in
- * obliquo /, 5 - La cella è occupata in due direzioni.
+ * 
+ * Questa classe è la classe che si occupa di generare il campo,
+ * essa controlla che le parole possano essere inserite all'interno
+ * del campo.
+ * 
+ * Questa classe contiene anche l'array con le parole selezionate e le 
+ * soluzioni del gioco.
+ * 
+ * Parole in quattro direzioni:
+ *      Verticale |;
+ *      Orizzontale -;
+ *      ObliquaS /;
+ *      ObliquaD \;
  *
  * @author Jacopo Faul
- * @version 20.10.2023
+ * @version 01.12.2023
  */
 public class Campo {
 
@@ -372,6 +372,12 @@ public class Campo {
         return f;
     }
     
+    /**
+     * Una volta finito di generare il campo, questo metodo
+     * si preoccupa di controllare che esso sia completo, ovvero
+     * che non ci siano spazi con più di 3 caselle vuote consecutive
+     * in tutte e quattro le direzioni.
+     */
     private void controllaLeCelleRestanti() {
         for (int i = 0; i < grandezzaCampo; i++) {
             for (int j = 0; j < grandezzaCampo; j++) {
@@ -433,6 +439,16 @@ public class Campo {
         }
     }
     
+    /**
+     * Controlla se la parola si possa inserire 
+     * all'interno del campo.
+     * 
+     * @param parola la parola
+     * @param direzione la direzione della parola
+     * @param riga la riga d'inizio
+     * @param colonna la colonna d'inizio
+     * @return true se inseribile, false se non inseribile
+     */
     public boolean controllaCelle(String parola, int direzione, int riga, int colonna) {
         
         boolean disponibile = true;
